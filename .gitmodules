@@ -1,0 +1,8 @@
+[submodule "tex-personal-statement/binder"]
+	path = tex-personal-statement/binder
+	url = https://github.com/mmore500/wse-sketches.git
+	branch = binder
+[submodule "tex-project-proposal/binder"]
+	path = tex-project-proposal/binder
+	url = https://github.com/mmore500/wse-sketches.git
+	branch = binder
