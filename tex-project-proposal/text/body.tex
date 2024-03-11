@@ -24,7 +24,7 @@ Emerging massively parallel/distributed hardware architectures provide incredibl
 \section{Methods}
 This library enables extraction of evolutionary history from large-scale parallel and distributed evolutionary simulations where direct phylogenetic tracking is not feasible (Moreno, 2022). Each genome in a population is marked with a special annotation akin to noncoding DNA (as small as 96 bits), inherited by each consecutive generation. At the end of a simulation, these markers facilitate post-hoc analysis of evolutionary history (e.g., reconstructing phylogenetic history), shown in Figure 1.
 
-Figure 1: Overview of the HStrat workflow. Agent population shown as microbes and HStrat markers as DNA . Markers allow phylogenetic history to be reconstructed from genomes in post-hoc analysis.
+\input{fig/runtime-posthoc-schematic.tex}
 
 In recent work, we have taken major strides towards this vision with the Cerebras SDK, phylogenetic reconstruction using hereditary stratigraphy techniques and managing a population using asynchronous agent migration between neighboring PEs.
 
