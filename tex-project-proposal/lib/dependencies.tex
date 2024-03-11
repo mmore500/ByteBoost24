@@ -3,10 +3,9 @@
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{array}
 \usepackage{authblk}
-\usepackage{bibunits}
+\usepackage[autocite = superscript,style = nature]{biblatex}
 \usepackage{booktabs}
-\usepackage{caption}
-\usepackage{cite}
+\usepackage[compatibility=false]{caption}
 \usepackage{colortbl}
 \usepackage{csvsimple}
 \usepackage{csquotes}
@@ -14,8 +13,9 @@
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{import}
-\usepackage{natbib}
-\usepackage[moderate]{savetrees} \usepackage{enumitem}
+\usepackage[section]{placeins}
+\usepackage[moderate]{savetrees} \usepackage[inline]{enumitem}
+\usepackage[nodisplayskipstretch]{setspace}
 \usepackage{siunitx}
 \usepackage{subcaption}
 \usepackage{tabularx}
@@ -23,10 +23,11 @@
 \usepackage{wrapfig}
 \usepackage{xcolor}
 
-% Define lighter colors
-\definecolor{LighterBlue}{rgb}{0.84, 0.92, 0.95}
-\definecolor{LighterSalmon}{rgb}{1.0, 0.81, 0.76}
-\definecolor{LighterPastelGreenYellow}{rgb}{0.88, 0.96, 0.90}
+\setlist[itemize]{noitemsep, topsep=0pt}
+\setlist[enumerate]{noitemsep, topsep=0pt}
 
-% Define thick vertical lines for section dividers
-\newcolumntype{q}{!{\color{white} \vrule width 2pt}}
+\renewcommand{\rmdefault}{ptm}
+\usepackage[compact]{titlesec}
+\titleformat{\section}[runin]{\normalfont\bfseries\itshape}{}{0pt}{}[.\kern 1pc]
+\titlespacing*{\section}{0pt}{0pt}{0pt}
+

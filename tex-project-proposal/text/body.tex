@@ -12,29 +12,28 @@
 % CV (1 page) including the applicant's previous computing experiences, skills, and field of science
 % Abstract (1 page) - Prospective participants are required to submit an abstract outlining the specific topic they intend to explore as a fundamental part of their application for consideration in this call for participation.
 
-\textbf{Title.}
-Matthew Andres Moreno \texttt{morenoma@umich.edu}
+\textbf{Title.} M.A. Moreno \texttt{morenoma@umich.edu}
 
-\textbf{Introduction.}
+\section{Introduction}
 Evolutionary processes underlie key questions in public health, medicine, and natural resources management. Research improving our understanding of evolutionary processes not only reveals aspects of natural history, but also equips us to tackle large-scale problems like epidemiology, antibiotic resistance, cancer biology, and conservation biology.
 
 Despite robust work adapting agent-based modeling to traditional GPU hardware accelerators, developing for emerging HPC and HPC accelerator platforms like IPUs or wafer-scale computing is untouched.
 
 Emerging massively parallel/distributed hardware architectures provide incredible potential to bring large-scale research questions within reach of computational evolution models. However, operating these simulations in a decentralized manner and downsampling the hordes and hordes of data off the device. This question is a major thing of my research topic.
 
-\textbf{Methods.}
+\section{Methods}
 This library enables extraction of evolutionary history from large-scale parallel and distributed evolutionary simulations where direct phylogenetic tracking is not feasible (Moreno, 2022). Each genome in a population is marked with a special annotation akin to noncoding DNA (as small as 96 bits), inherited by each consecutive generation. At the end of a simulation, these markers facilitate post-hoc analysis of evolutionary history (e.g., reconstructing phylogenetic history), shown in Figure 1.
 
 Figure 1: Overview of the HStrat workflow. Agent population shown as microbes and HStrat markers as DNA . Markers allow phylogenetic history to be reconstructed from genomes in post-hoc analysis.
 
 In recent work, we have taken major strides towards this vision with the Cerebras SDK, phylogenetic reconstruction using hereditary stratigraphy techniques and managing a population using asynchronous agent migration between neighboring PEs.
 
-\textbf{Science Question.}
+\section{Science Question}
 What is the structural relationship between individual-level phylogenies and species-level phylogenies? Do they respond in the same way to evolutionary conditions like selection pressure, ecology, and spatial structure?
 
 What conditions precipitate emergence/success of new viral strains? In particular, how does the population size/infection intensity affect the rate at which strains emerge/sweep?  [get citation from marisa?]
 
-\textbf{Engineering Questions.}
+\section{Engineering Questions}
 Possible topics appropriately scoped engineering questions behind this science question for the workshop environment include,
 \begin{itemize}
 \item How to efficiently perform long-distance migration?
@@ -48,7 +47,7 @@ The builtin memcpy operation provides a good way to do this at conclusion, but a
 
 https://github.com/mmore500/wse-sketches
 
-\textbf{Conclusion.}
+\section{Broader Impacts}
 
 The availability of modular, extendable software for agent-based evolution simulation on emerging HPC architectures will catalyze research. Progress on this front
 How to organize and distribute CSL modules.
@@ -57,5 +56,3 @@ If there aren’t established protocols, the workshop environment would be a gre
 ADD PERSONAL STATEMENT CONTENT HERE
 
 This work lays foundations for research in open—ended evolution (cite MODES) and in evolutionary epidemiology, among other topics. (move to intro?)
-
-\textbf{References.}
