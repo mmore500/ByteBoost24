@@ -1,4 +1,4 @@
-run = "make -C tex-project-proposal fresh; make -C tex-personal-statement fresh"
+run = "make -C tex-project-proposal fresh"
 
 [nix]
 channel = "stable-22_11"
