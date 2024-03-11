@@ -26,9 +26,3 @@ jobs:
         with:
           name: project-proposal
           path: tex-project-proposal/${{ github.event.repository.name }}-draft.pdf
-      - run: (make -C tex-personal-statement/ || (cat tex-personal-statement/*.log && false))
-      - name: Upload output as artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: personal-statement
-          path: tex-personal-statement/${{ github.event.repository.name }}-draft.pdf
