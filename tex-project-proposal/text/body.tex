@@ -17,58 +17,75 @@ M.A. Moreno, \texttt{morenoma@umich.edu}
 
 \section{Introduction}
 Evolutionary processes underlie key questions in public health, medicine, and natural resources management.
-In conjunction with benchtop experiments and observational studies, mathematical and computational models play a key role in our understanding of evolutionary processes underpinning critical problems like epidemiology, antibiotic resistance, cancer biology, and conservation biology.
-Emerging massively parallel/distributed High-Performance Computing (HPC) hardware like the Cerebras Wafer-Scale Engine (WSE) and Graphcore Intelligence Processing Unit (IPU) platforms will provide a foothold for model-driven inquiry into key cross-scale research questions, such as major transitions in evolution (e.g., origins of multicellularity) and evo-epidemiological relationships between within-host infection dynamics and population-level transmission patterns.
-However, foundational algorithms and supporting software (e.g., Cerebras Software Language [CSL], Poplar) necessary to harness these platforms for agent-based evolution simulations remain largely undeveloped.
-Progress on these fronts will contribute to broader classes of agent-based model (ABM) simulation.
+In conjunction with benchtop experiments and observational studies, mathematical and computational models play a key role in understanding evolutionary processes underpinning critical problems like epidemiology, antibiotic resistance, cancer biology, and conservation biology.
+Emerging High-Performance Computing (HPC) hardware like the Cerebras Wafer-Scale Engine (WSE) and Graphcore Intelligence Processing Unit (IPU) will make key cross-scale evolutionary phenomena tractable to modeling, such as transitions of individuality (e.g., multicellularity) and evo-epidemiological tradeoffs between pathogens' within-host dynamics and between-host transmissibility \cite{goldsby2020major,schreiber2021evolutionary}.
+
+\section{Objectives}
+
+The proposed workshop project will explore foundational algorithms and supporting software (e.g., Cerebras Software Language [CSL], Poplar) necessary to harness emerging HPC hardware accelerators for agent-based evolution research.
+Developed simulation will investigate how population structure and rare mutational events influence selective sweep frequency within very large populations.
+Among other application areas, sweep dynamics are pivotal to understanding how new pathogen strains emerge and establish within host populations \cite{markov2023evolution}.
 
 \section{Methods}
 
+To succeed as a tool for scientific research, simulation must be sufficiently observable.
+In the case of evolutionary simulation, phylogenetic history (i.e., ancestry trees) are key to assessing the mode and tempo of evolution.
+
 \input{fig/runtime-posthoc-schematic.tex}
 
-To succeed as a tool for scientific research, simulation must be sufficiently observable.
-Within the  evolutionary simulations, the constitutes an important thing.
-However, due to issues, direct tracking methods scale poorly to multiprocess contexts \cite{moreno2024analysis}. feasible particularly memory-constrained.
+Proposed work builds on recently-introduced \textit{hereditary stratigraphy} (HStrat) methods designed to enable characterization evolutionary history in highly-distributed simulations \cite{moreno2022hstrat}.
+These methods mark population members with a special annotation akin to noncoding DNA (as small as 96 bits), inherited by each consecutive generation.
+After simulation ends, HStrat markers facilitate fast and accurate reconstruction of phylogenetic history.
+This procedure, summarized in Figure \ref{fig:runtime-posthoc-schematic}, analogizes use of DNA sequence data to infer phylogenies of natural systems.
+Unlike direct lineage tracking, HStrat methods scale gracefully to long-running multiprocess simulation \cite{moreno2024analysis}.
 
-Proposed work builds on recently-introduced \textit{hereditary stratigraphy} (HStrat) methodology for extraction of evolutionary history from large-scale parallel and distributed evolutionary simulations \cite{moreno2022hstrat}.
-Each genome in a population is marked with a special annotation akin to noncoding DNA (as small as 96 bits), inherited by each consecutive generation.
-At the end of a simulation, these markers facilitate post-hoc analysis of evolutionary history (e.g., reconstructing phylogenetic history), shown in Figure 1.
+Simulation will use an island model to harness the processing power of focal HPC accelerators.
+This approach instantiates separate agent subpopulations per processor, with agents occasionally migrated between subpopulations.
+Global population structure results from rates of agent migration and the pattern of connectivity between islands.
 
-In recent work, we have taken major strides towards this vision with the Cerebras SDK, phylogenetic reconstruction using hereditary stratigraphy techniques and managing a population using asynchronous agent migration between neighboring PEs.
-\url{https://github.com/mmore500/wse-sketches}
-
+A simple agent model suffices for proposed work, with agent traits abstracted to a floating point ``fitness'' value encoded directly in agent genomes.
+Fitness landscape properties can be tuned through choice of mutation operator.
+For instance, high probability deleterious outcomes would simulate a rugged landscape.
 
 \section{Proposed Work}
 
-What conditions precipitate emergence/success of new viral strains?
-In particular, how does the population size/infection intensity affect the rate at which strains emerge/sweep? \cite{markov2023evolution}.
+Project work will focus on the Cererbras WSE platform.
+Workshop activities will build on recent initial implementation of HStrat-enabled island model evolutionary simulation in CSL via the v1.0.0 Cerebras SDK.
+Prototype code is available via GitHub at \url{hopth.ru/cl}.
+Several engineering problems suited to workshop scope remain unresolved:
+\begin{enumerate*}
+\item \textbf{Agent migration between distant processing elements}.
+Possible strategies include stochastic forwarding or more structured wavelet routing schemes.
+This capability enables manipulation of population structure via island capability as an experimental variable.
 
-Possible engineering questions scoped to a workshop environment include,
-\begin{itemize}
-\item How to efficiently perform long-distance migration?
-One possibility is to impose an overlay of fixed long distance routes.
-Another would be stochastic forwarding.
-How best to take advantage of built-routing capabilities will benefit from instruction in the workshop.
-This is important to be able to create more realistic population structures that deviate beyond simple grid connectivity.
-\item How to sample population members on-the-fly?
-The builtin memcpy operation provides a good way to do this at conclusion, but advanced techniques for asynchronous memcpy operations or otherwise.
-\end{itemize}
+\item \textbf{On-the-fly device-to-host genome sampling.}
+Recording evolutionary intermediates over simulation runtime can help characterize evolutionary history, akin to a ``fossil record.''
+\end{enumerate*}
 
 \section{Broader Impacts}
 
-The availability of modular, extendable software for agent-based evolution simulation on emerging HPC architectures will catalyze research.
-Progress on this front
-How to organize, test, and distribute CSL and Poplar modules, to directly create modules during the workshop that can be shared.
-If there aren’t established protocols, the workshop environment would be a great place to discuss these issues.
+I hope to amplify impact my own ByteBoost participation by sharing what I learn and create to empower others in my research community in two ways.
+\begin{enumerate*}
+\item \textbf{Software Products}: Availability of usable, extendable software significantly drives adoption and productivity of any new research platform.
+I hope to strengthen community codebase by documenting, packaging, and sharing code developed over the course of the workshop.
+Given the cutting-edge nascency of ByteBoost platforms, I anticipate great benefit learning best practices to organize, test, and distribute on-device kernel/on-host driver software components through discussion with other workshop participants.
+\item \textbf{Knowledge Transfer}: I plan to report workshop highlights back to my peers at the BEACON Center and the Schmidt AI in Science Postdoc Program.
+Both groups host rotating weekly meetings ideal for this purpose.
+Within my own lab group, I will relay knowledge to undergraduate mentee Connor Yang currently working on CSL projects.
+\end{enumerate*}
 
-I am excited to share what I learn at the workshop within my academic circles.
-As a participant in the Schmidt AI in Science Postdoctoral Scholar program at University of Michigan, I regularly to lead.
-I will be excited to share with my cohort of 10 peer scholars from domains across the natural sciences, with weekly seminar series focused on peer cross-pollination.
+\section{Career Impact}
 
-I hope to use this opportunity to build connections in HPC world, to SAY SOMETHING ABOUT CAREER AND CAREER STAGE.
-I am currently preparing an ACCESS Innovative Projects Proposal and recently submitted a preproposal for the Dept. of Energy's EXPRESS 2024 FOA.
-Foundations for extensive ongoing work pushing ABM into these directions in my own career.
-Ultimately, I hope this workshop pwoposal will contribute to lay foundations for research in open—ended evolution (cite MODES) and in evolutionary epidemiology, among other topics. and lay foundations in my own career to continue to develop those foundations for the research community I work in.
+As an early-career researcher, ByteBoost provides a valuable opportunity to develop skills and professional connections to further my career goals to equip the digital evolution community to achieve radically scaled-up simulation.
+I will roll workshop participation into a broader nascent research agenda.
+In conunction, I am presently developing an ACCESS Innovative Projects Proposal and recently entered a preproposal to the Dept. of Energy's EXPRESS 2024 FOA.
+Ultimately, proposed work takes first steps in sustained leadership laying foundations for application of new accelerator technologies to agent-based modeling in digital evolution and beyond.
+
+% will catalyze research.
+% Progress on this front
+% How to , to directly create modules during the workshop that can be shared.
+% If there aren’t established protocols, the workshop environment would be a great place to discuss these issues.
+
 
 % What is the structural relationship between individual-level phylogenies and species-level phylogenies?
 % Do they respond in the same way to evolutionary conditions like selection pressure, ecology, and spatial structure?
