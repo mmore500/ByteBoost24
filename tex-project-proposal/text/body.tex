@@ -36,10 +36,11 @@ In the case of evolutionary simulation, phylogenetic history (i.e., ancestry tre
 \input{fig/runtime-posthoc-schematic.tex}
 
 Proposed work builds on recently-introduced \textit{hereditary stratigraphy} (HStrat) methods designed to enable characterization evolutionary history in highly-distributed simulations \cite{moreno2022hstrat}.
-These methods mark population members with a special annotation akin to noncoding DNA (as small as 96 bits), inherited by each consecutive generation.
+These methods mark population members with a special annotation akin to noncoding DNA, inherited by each consecutive generation.
 After simulation ends, HStrat markers facilitate fast and accurate reconstruction of phylogenetic history.
 This procedure, summarized in Figure \ref{fig:runtime-posthoc-schematic}, analogizes use of DNA sequence data to infer phylogenies of natural systems.
 Unlike direct lineage tracking, HStrat methods scale gracefully to long-running multiprocess simulation \cite{moreno2024analysis}.
+Markers can be as small as 96 bits.
 
 Simulation will use an island model to harness HPC accelerator processing power.
 This approach instantiates separate agent subpopulations per processor, with agents occasionally migrated between subpopulations.
@@ -53,35 +54,21 @@ For instance, high probability deleterious outcomes would simulate a rugged land
 
 Project work will focus on the Cererbras WSE platform.
 Workshop activities will build on recent initial implementation of HStrat-enabled island model evolutionary simulation in CSL via the v1.0.0 Cerebras SDK.
-Prototype code is available via GitHub at \url{hopth.ru/cl}.
+Prototype code is available via GitHub at \texttt{\href{https://hopth.ru/cl}{hopth.ru/cl}}.
 Several engineering problems suited to workshop scope remain unresolved:
-\begin{enumerate*}
+\begin{enumerate}
 \item \textbf{Agent migration between distant processing elements}.
 Possible strategies include stochastic forwarding or more structured wavelet routing schemes.
 This capability enables manipulation of population structure via island capability as an experimental variable.
 
 \item \textbf{On-the-fly device-to-host genome sampling.}
 Recording evolutionary intermediates over simulation runtime can help characterize evolutionary history, akin to a ``fossil record.''
-\end{enumerate*}
+TODO
+\end{enumerate}
 
-\section{Broader Impacts}
+\section{Outcomes}
 
-I hope to amplify impact my own ByteBoost participation by sharing what I learn and create to empower others in my research community in two ways.
-\begin{enumerate*}
-\item \textbf{Software Products}: Availability of usable, extendable software significantly drives adoption and productivity of any new research platform.
-I hope to strengthen community codebase by documenting, packaging, and sharing code developed during the course of the workshop.
-Given the cutting-edge nascency of ByteBoost platforms, I anticipate great benefit learning best practices to organize, test, and distribute on-device kernel/on-host driver software components through discussion with other workshop participants.
-\item \textbf{Knowledge Transfer}: I plan to report workshop highlights back to my peers at the BEACON Center and the Schmidt AI in Science Postdoc Program.
-Both groups host rotating weekly meetings ideal for this purpose.
-Within my own lab group, I will relay knowledge to undergraduate mentee Connor Yang currently working on CSL projects.
-\end{enumerate*}
-
-\section{Career Impact}
-
-As an early-career researcher, ByteBoost provides a valuable opportunity to develop skills and professional connections to further my career goals to equip the digital evolution community to achieve radically scaled-up simulation.
-I will roll workshop participation into a broader nascent research agenda.
-In conjunction, I am presently developing an ACCESS Innovative Projects Proposal and recently entered a preproposal to the Dept. of Energy's EXPRESS 2024 FOA.
-Ultimately, proposed work takes first steps in sustained leadership laying foundations for application of new accelerator technologies to agent-based modeling in digital evolution and beyond.
+TODO
 
 % will catalyze research.
 % Progress on this front
