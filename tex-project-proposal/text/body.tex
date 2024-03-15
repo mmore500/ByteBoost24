@@ -58,17 +58,29 @@ Prototype code is available via GitHub at \texttt{\href{https://hopth.ru/cl}{hop
 Several engineering problems suited to workshop scope remain unresolved:
 \begin{enumerate}
 \item \textbf{Agent migration between distant processing elements}.
-Possible strategies include stochastic forwarding or more structured wavelet routing schemes.
 This capability enables manipulation of population structure via island capability as an experimental variable.
+Possible strategies include stochastic forwarding or more structured wavelet routing schemes.
+Ideally, will take advantage of as much of the routing intrinsics as possible in order to avoid making hops at each intermediate step and consuming compute cycles there.
 
 \item \textbf{On-the-fly device-to-host genome sampling.}
 Recording evolutionary intermediates over simulation runtime can help characterize evolutionary history, akin to a ``fossil record.''
-TODO
+This problem requires routing agent information to the periphery of the wafer and onto the host on a rolling basis.
+Data export traffic will need to be balanced with agent migration, also occurring during simulation runtime.
 \end{enumerate}
 
 \section{Outcomes}
 
+We will benchmark runtime cost/slowdown and assess compute capability usage.
+We will benchmark the scalability of developed code by running benchmarks at different sizes of things.
+We will make use of phylogenetic reconstruction capabilities to validate the implementations: that sampled genomes are from a variety of lineages and align to their sampling time.
+That agent migration has expected effects on phylogenetic richness.
+
+Technical validations will precede work assessing the frequency of sweeps with different migration dynamics and mutational dynamics.
+% Developed simulation will investigate how population structure and rare mutational events influence selective sweep frequency within very large populations.
+We will prepare an appropriate baseline treatment and assess the rate of sweeps with fat-tailed mutational distributions, strong purifying selection (high proportions of negative selection), and less spatial structure due to stronger migration rates.
+
 TODO
+
 
 % will catalyze research.
 % Progress on this front
@@ -78,3 +90,5 @@ TODO
 
 % What is the structural relationship between individual-level phylogenies and species-level phylogenies?
 % Do they respond in the same way to evolutionary conditions like selection pressure, ecology, and spatial structure?
+
+TODO add bolding
