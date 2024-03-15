@@ -14,19 +14,18 @@ The hands-on component of the workshop also provides an ideal opportunity to bui
 My hope is that the workshop serves as an introduction to build relationships with a network of future leaders in scientific computing.
 I also hope to connect with HPC technologists and systems administrators from leading academic computing centers.
 
-Finally, I see significant benefit in the workshop's direct instruction on the underlying structure of Cerebras, Graphcore, and Fujitsu A64FX hardware.
-Cerebras' SDK documentation has provided some familiarity with the Cerebras Software Library (CSL), but TODO will more effectively leverage the full potential of the platform.
-The workshop structure will provide to tackle.
-Although I have less familiarity with the Graphcore Intelligence Processing Unit (IPU), this accelerator TODO good fit with my research.
+Finally, I see significant benefit in the workshop's direct instruction on the underlying properties of Cerebras, Graphcore, Intel, NVIDIA, and Fujitsu A64FX hardware.
+Although Cerebras' SDK documentation has provided some familiarity with the Cerebras Software Language (CSL), ByteBoost participation will allow me to round out foundational knowledge necessary to effectively leverage the full potential of the platform.
+I have less familiarity exploring hardware available at Ookami and ACES, and I am looking forward to the opportunity to become acquainted.
+In particular, the Graphcore Intelligence Processing Unit (IPU) or similar classes of accelerator hardware prove fruitful for future work with agent-based modeling.
 
 ## Career Goals
 
-Ultimately, I will roll workshop participation into a research agenda that pushes the boundaries of HPC to advance capabilities of evolutionary simulation.
-Talk about hardware access
-In conjunction, I am presently developing an ACCESS Innovative Projects Proposal and recently entered a preproposal to the Dept. of Energy's EXPRESS 2024 FOA.
-Proposed work takes first steps in sustained leadership laying foundations for application of new accelerator technologies to agent-based modeling in digital evolution and beyond.
-I see great potential for applications of HPC to questions revolving around open-ended evolution and major transitions in evolution (e.g., evolution of multicellularity) in my research community,
-My long-term goal is to equip the digital evolution community to achieve radically scaled-up simulation
+Workshop participation will help me navigate the first stages of a research agenda that pushes the boundaries of HPC to advance capabilities of evolutionary simulation.
+In conjunction with my ByteBoost participation, I am presently developing an ACCESS Innovative Projects Proposal for hardware time on Neocortex and recently entered a preproposal to the US Department of Energy's EXPRESS 2024 FOA under the Large Discrete/Agent-Based Models topic.
+My workshop learning and capstone project will feed into directly into these research activities.
+Ultimately, I hope to contribute to progress addressing open questions around open-ended evolution and major transitions in evolution (e.g., evolution of multicellularity) through sustained leadership laying foundations for application of emerging HPC technologies to agent-based modeling in digital evolution.
+More broadly, I anticipate such work benefiting broader classes of agent-based modeling, with digital evolution serving as a productive testbed for generalizable computational methods for parallel discrete event simulation.
 
 ## Empowering my Research Community
 
@@ -43,10 +42,4 @@ Given the cutting-edge nature of ByteBoost platforms, I anticipate great benefit
 
 I plan to report workshop highlights back to my peers at the BEACON Center for the Study of Evolution in Action and the Schmidt AI in Science Postdoc Program.
 Both groups host rotating weekly meetings ideal for this purpose.
-Within my home lab group, I will relay knowledge to undergraduate mentee Connor Yang currently working on CSL projects.
-
-
- <!-- to study cross-scale phenomena in evolving systems -->
-
-
-<!-- in emerging HPC technologies -->
+Within my home lab group, I will relay knowledge to undergraduate mentee Connor Yang, who is currently assisting with CSL projects.
