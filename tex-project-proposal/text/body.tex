@@ -19,42 +19,42 @@ M.A. Moreno, \texttt{morenoma@umich.edu}
 \vspace{-2ex}
 \section{Introduction}
 Evolutionary processes underlie key questions in public health, medicine, and natural resources management.
-In conjunction with benchtop experiments and observational studies, mathematical and computational models play a key role in understanding evolutionary processes underpinning critical problems like epidemiology, antibiotic resistance, cancer biology, and conservation biology.
-Emerging High-Performance Computing (HPC) hardware like the Cerebras Wafer-Scale Engine (WSE) will enable detailed modeling of key cross-scale evolutionary phenomena, such as transitions of individuality (e.g., multicellularity) and evo-epidemiological tradeoffs between pathogens' within-host dynamics and between-host transmissibility \cite{goldsby2020major,schreiber2021evolutionary}.
+In conjunction with benchtop experiments and observational studies, \textbf{mathematical and computational models} play a key role in \textbf{understanding evolutionary processes} underpinning critical problems like epidemiology, antibiotic resistance, cancer biology, and conservation biology.
+Emerging High-Performance Computing (HPC) hardware like the \textbf{Cerebras Wafer-Scale Engine (WSE)} will enable detailed modeling of \textbf{key cross-scale evolutionary phenomena}, such as transitions of individuality (e.g., multicellularity) and evo-epidemiological tradeoffs between pathogens' within-host dynamics and between-host transmissibility \cite{goldsby2020major,schreiber2021evolutionary}.
 
 \section{Objectives}
 
-The proposed workshop project will explore foundational algorithms and supporting software (e.g., Cerebras Software Language [CSL], Poplar) necessary to harness emerging HPC hardware accelerators for agent-based evolution research.
-Developed simulation will investigate how population structure and rare mutational events influence selective sweep frequency within very large populations.
-Among other application areas, sweep dynamics are pivotal to understanding how new pathogen strains emerge and establish within host populations \cite{markov2023evolution}.
+The proposed workshop project will create foundational \textbf{algorithms and kernel implementations in Cerebras Software Language (CSL)} necessary to harness emerging HPC hardware accelerators for agent-based evolution simulation.
+Developed simulation will investigate how \textbf{population structure} and \textbf{rare mutational events} influence \textbf{selective sweep frequency} within very large populations.
+Among other application areas, sweep dynamics are pivotal in epidemiology to understanding how new pathogen strains emerge and establish within host populations \cite{markov2023evolution}.
 
 \section{Methods}
 
 To succeed as a tool for scientific research, simulation must be sufficiently observable.
-In the case of evolutionary simulation, phylogenetic history (i.e., ancestry trees) is key to assessing the mode and tempo of evolution.
+In the case of evolutionary simulation, \textbf{phylogenetic history} (i.e., ancestry trees) is key to assessing the mode and tempo of evolution.
 
 \input{fig/runtime-posthoc-schematic.tex}
 
-Proposed work builds on recently-introduced \textit{hereditary stratigraphy} (HStrat) methods designed to enable characterization evolutionary history in highly-distributed simulations \cite{moreno2022hstrat}.
+Proposed work builds on recently-introduced \textbf{\textit{hereditary stratigraphy} (HStrat) methods} designed to enable \textbf{extraction of evolutionary history decentralized, many-processor simulations} \cite{moreno2022hstrat}.
 These methods mark population members with a special annotation akin to noncoding DNA, inherited by each consecutive generation.
-After simulation ends, HStrat markers facilitate fast and accurate reconstruction of phylogenetic history.
+After simulation ends, HStrat markers facilitate fast and accurate \textbf{reconstruction of phylogenetic history}.
 This procedure, summarized in Figure \ref{fig:runtime-posthoc-schematic}, analogizes use of DNA sequence data to infer phylogenies of natural systems.
-Unlike direct lineage tracking, HStrat methods scale gracefully to long-running multiprocess simulation \cite{moreno2024analysis}.
+Unlike direct lineage tracking, \textbf}HStrat methods scale gracefully} to long-running multiprocess simulation \cite{moreno2024analysis}.
 Markers can be as small as 96 bits.
 
-Simulation will use an island model to harness HPC accelerator processing power.
+TODO need transition
+
+Simulation will use an \textbf{island-model algorithm} to harness HPC accelerator processing power.
 This approach instantiates separate agent subpopulations per processor, with agents occasionally migrated between subpopulations.
 Global population structure results from rates of agent migration and the pattern of connectivity between islands.
 
 A simple agent model suffices for proposed work, with agent traits abstracted to a floating point ``fitness'' value encoded directly in agent genomes.
 Fitness landscape properties can be tuned through choice of mutation operator.
-For instance, high probability deleterious outcomes would simulate a rugged landscape.
+For instance, increased probability for large fitness losses would simulate a rugged landscape.
 
 \section{Proposed Work}
 
-Project work will focus on the Cererbras WSE platform.
-Workshop activities will build on recent initial implementation of HStrat-enabled island model evolutionary simulation in CSL via the v1.0.0 Cerebras SDK.
-Prototype code is available via GitHub at \texttt{\href{https://hopth.ru/cl}{hopth.ru/cl}}.
+Workshop activities will build on recent \textbf{prototype implementation} of HStrat-enabled island model evolutionary simulation in CSL using the v1.0.0 Cerebras SDK, available via GitHub at \texttt{\href{https://hopth.ru/cl}{hopth.ru/cl}}.
 Several engineering problems suited to workshop scope remain unresolved:
 \begin{enumerate}
 \item \textbf{Agent migration between distant processing elements}.
@@ -70,14 +70,17 @@ Data export traffic will need to be balanced with agent migration, also occurrin
 
 \section{Outcomes}
 
+Workshop activities will combine engineering/coding with may also want to ask hypothesis driven questions.
+Technical validations will precede work assessing the frequency of sweeps with different migration dynamics and mutational dynamics.
+
+In order to assess implementations to technical problems identified above,
 We will benchmark runtime cost/slowdown and assess compute capability usage.
 We will benchmark the scalability of developed code by running benchmarks at different sizes of things.
-We will make use of phylogenetic reconstruction capabilities to validate the implementations: that sampled genomes are from a variety of lineages and align to their sampling time.
-That agent migration has expected effects on phylogenetic richness.
+We will validate migration and sampling using per-PE counters for send/receive actions and dummy genomes with fixed annotations of their origin PE identity.
 
-Technical validations will precede work assessing the frequency of sweeps with different migration dynamics and mutational dynamics.
-% Developed simulation will investigate how population structure and rare mutational events influence selective sweep frequency within very large populations.
+Our kernel implementation will allow investigation of how population structure and rare mutational events influence selective sweep frequency within very large populations.
 We will prepare an appropriate baseline treatment and assess the rate of sweeps with fat-tailed mutational distributions, strong purifying selection (high proportions of negative selection), and less spatial structure due to stronger migration rates.
+and use phylogenetic reconstructions to
 
 TODO
 
@@ -92,3 +95,5 @@ TODO
 % Do they respond in the same way to evolutionary conditions like selection pressure, ecology, and spatial structure?
 
 TODO add bolding
+
+% Project work will focus on the Cererbras WSE platform.
