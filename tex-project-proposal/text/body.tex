@@ -16,39 +16,34 @@
 \hfill
 {\scriptsize M.A. Moreno, \texttt{morenoma@umich.edu}}
 
-M.A. Moreno, \texttt{morenoma@umich.edu}
-\end{center}
-\vspace{-2ex}
 \section{Introduction}
 Evolutionary processes underlie key questions in public health, medicine, and natural resources management.
-In conjunction with benchtop experiments and observational studies, \textbf{mathematical and computational models} play a key role in \textbf{understanding evolutionary processes} underpinning critical problems like epidemiology, antibiotic resistance, cancer biology, and conservation biology.
-Emerging High-Performance Computing (HPC) hardware like the \textbf{Cerebras Wafer-Scale Engine (WSE)} will enable detailed modeling of \textbf{key cross-scale evolutionary phenomena}, such as transitions of individuality (e.g., multicellularity) and evo-epidemiological tradeoffs between pathogens' within-host dynamics and between-host transmissibility \cite{goldsby2020major,schreiber2021evolutionary}.
+In conjunction with benchtop experiments and observational studies, \textbf{mathematical and computational models play a key role in understanding evolutionary processes} underpinning critical problems like epidemiology, antibiotic resistance, cancer biology, and conservation biology.
+Emerging High-Performance Computing (HPC) hardware like the \textbf{Cerebras Wafer-Scale Engine (WSE)} will enable \textbf{detailed modeling of core cross-scale evolutionary phenomena}, such as transitions in individuality (e.g., multicellularity) and evo-epidemiological tradeoffs between pathogens' within-host dynamics and between-host transmissibility \cite{goldsby2020major,schreiber2021evolutionary}.
 
 \section{Objectives}
 
 The proposed workshop project will create foundational \textbf{algorithms and kernel implementations in Cerebras Software Language (CSL)} necessary to harness emerging HPC hardware accelerators for agent-based evolution simulation.
-Developed simulation will investigate how \textbf{population structure} and \textbf{rare mutational events} influence \textbf{selective sweep frequency} within very large populations.
-Among other application areas, sweep dynamics are pivotal in epidemiology to understanding how new pathogen strains emerge and establish within host populations \cite{markov2023evolution}.
+Developed simulation will investigate how \textbf{population structure and rare mutational events influence selective sweep frequency} within very large populations.
+Among other application areas, sweep dynamics are pivotal in epidemiology to understanding how new disease strains emerge and establish \cite{markov2023evolution}.
 
 \section{Methods}
 
 To succeed as a tool for scientific research, simulation must be sufficiently observable.
-In the case of evolutionary simulation, \textbf{phylogenetic history} (i.e., ancestry trees) is key to assessing the mode and tempo of evolution.
+In the case of evolutionary simulation, \textbf{phylogenetic history} (i.e., ancestry trees) \textbf{is key to assessing the mode and tempo of evolution}.
 
 \input{fig/runtime-posthoc-schematic.tex}
 
-Proposed work builds on recently-introduced \textbf{\textit{hereditary stratigraphy} (HStrat) methods} designed to enable \textbf{extraction of evolutionary history decentralized, many-processor simulations} \cite{moreno2022hstrat}.
+Proposed work builds on recently-introduced \textbf{\textit{hereditary stratigraphy} (HStrat) methods} designed to enable \textbf{extraction of evolutionary history from decentralized, many-processor simulations} \cite{moreno2022hstrat}.
 These methods mark population members with a special annotation akin to noncoding DNA, inherited by each consecutive generation.
 After simulation ends, HStrat markers facilitate fast and accurate \textbf{reconstruction of phylogenetic history}.
 This procedure, summarized in Figure \ref{fig:runtime-posthoc-schematic}, analogizes use of DNA sequence data to infer phylogenies of natural systems.
-Unlike direct lineage tracking, \textbf}HStrat methods scale gracefully} to long-running multiprocess simulation \cite{moreno2024analysis}.
+Unlike direct lineage tracking, HStrat methods scale gracefully to long-running multiprocess simulation \cite{moreno2024analysis}.
 Markers can be as small as 96 bits.
 
-TODO need transition
-
-Simulation will use an \textbf{island-model algorithm} to harness HPC accelerator processing power.
-This approach instantiates separate agent subpopulations per processor, with agents occasionally migrated between subpopulations.
-Global population structure results from rates of agent migration and the pattern of connectivity between islands.
+Simulation will use an \textbf{island-model algorithm} to support very large population sizes.
+This approach instantiates separate agent subpopulations per processing element (PE), with agents occasionally migrated between subpopulations.
+Rates of agent migration and the pattern of connectivity between islands determines global population structure.
 
 A simple agent model suffices for proposed work, with agent traits abstracted to a floating point ``fitness'' value encoded directly in agent genomes.
 Fitness landscape properties can be tuned through choice of mutation operator.
@@ -56,18 +51,19 @@ For instance, increased probability for large fitness losses would simulate a ru
 
 \section{Proposed Work}
 
-Workshop activities will build on recent \textbf{prototype implementation} of HStrat-enabled island model evolutionary simulation in CSL using the v1.0.0 Cerebras SDK, available via GitHub at \texttt{\href{https://hopth.ru/cl}{hopth.ru/cl}}.
-Several engineering problems suited to workshop scope remain unresolved:
-\begin{enumerate}
+Capstone work will build on recent \textbf{prototype implementation} of HStrat-enabled island model evolutionary simulation in CSL using the v1.0.0 Cerebras SDK, available via GitHub at \texttt{\href{https://hopth.ru/cl}{hopth.ru/cl}}.
+However, several engineering problems suited to workshop capstone scope remain to be solved:
+\begin{enumerate}[leftmargin=*]
 \item \textbf{Agent migration between distant processing elements}.
-This capability enables manipulation of population structure via island capability as an experimental variable.
+Implementation of long-distance migration will enable manipulation of population structure via changes to island connectivity.
 Possible strategies include stochastic forwarding or more structured wavelet routing schemes.
-Ideally, will take advantage of as much of the routing intrinsics as possible in order to avoid making hops at each intermediate step and consuming compute cycles there.
+Ideally, implementation will take advantage of WSE routing intrinsics to avoid consuming PE cycles by explicitly forwarding at each PE hop.
 
 \item \textbf{On-the-fly device-to-host genome sampling.}
 Recording evolutionary intermediates over simulation runtime can help characterize evolutionary history, akin to a ``fossil record.''
-This problem requires routing agent information to the periphery of the wafer and onto the host on a rolling basis.
-Data export traffic will need to be balanced with agent migration, also occurring during simulation runtime.
+This problem concerns how to stream a rolling, random subsample of agent genomes to the wafer periphery then back to the host machine.
+Data output bandwidth will need to be balanced against between-PE agent migration.
+A possible simplification would be to sample genomes only from wafer-edge PE subpopulations.
 \end{enumerate}
 
 \section{Outcomes}
