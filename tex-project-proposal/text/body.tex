@@ -19,7 +19,7 @@
 \section{Introduction}
 Evolutionary processes underlie key questions in public health, medicine, and natural resources management.
 In conjunction with benchtop experiments and observational studies, \textbf{mathematical and computational models play a key role in understanding evolutionary processes} underpinning critical problems like epidemiology, antibiotic resistance, cancer biology, and conservation biology.
-Emerging High-Performance Computing (HPC) hardware like the \textbf{Cerebras Wafer-Scale Engine (WSE)} will enable \textbf{detailed modeling of core cross-scale evolutionary phenomena}, such as transitions in individuality (e.g., multicellularity) and evo-epidemiological tradeoffs between pathogens' within-host dynamics and between-host transmissibility \cite{goldsby2020major,schreiber2021evolutionary}.
+Emerging High-Performance Computing (HPC) hardware like the Cerebras Wafer-Scale Engine (WSE) will \textbf{enable detailed modeling of cross-scale evolutionary phenomena}, such as major transitions in individuality (e.g., evolution of multicellularity) and evo-epidemiological tradeoffs between pathogens' within-host dynamics and between-host transmissibility \cite{goldsby2020major,schreiber2021evolutionary}.
 
 \section{Objectives}
 
@@ -34,10 +34,10 @@ In the case of evolutionary simulation, \textbf{phylogenetic history} (i.e., anc
 
 \input{fig/runtime-posthoc-schematic.tex}
 
-Proposed work builds on recently-introduced \textbf{\textit{hereditary stratigraphy} (HStrat) methods} designed to enable \textbf{extraction of evolutionary history from decentralized, many-processor simulations} \cite{moreno2022hstrat}.
+Proposed work builds on new \textbf{\textit{hereditary stratigraphy} (HStrat) methods} designed to enable \textbf{extraction of evolutionary history from decentralized, many-processor simulations} \cite{moreno2022hstrat}.
 These methods mark population members with a special annotation akin to noncoding DNA, inherited by each consecutive generation.
 After simulation ends, HStrat markers facilitate fast and accurate \textbf{reconstruction of phylogenetic history}.
-This procedure, summarized in Figure \ref{fig:runtime-posthoc-schematic}, analogizes use of DNA sequence data to infer phylogenies of natural systems.
+This procedure (Fig. \ref{fig:runtime-posthoc-schematic}) analogizes use of DNA sequence data to infer phylogenies of natural systems.
 Unlike direct lineage tracking, HStrat methods scale gracefully to long-running multiprocess simulation \cite{moreno2024analysis}.
 Markers can be as small as 96 bits.
 
@@ -59,39 +59,18 @@ Implementation of long-distance migration will enable manipulation of population
 Possible strategies include stochastic forwarding or more structured wavelet routing schemes.
 Ideally, implementation will take advantage of WSE routing intrinsics to avoid consuming PE cycles by explicitly forwarding at each PE hop.
 
-\item \textbf{On-the-fly device-to-host genome sampling.}
-Recording evolutionary intermediates over simulation runtime can help characterize evolutionary history, akin to a ``fossil record.''
+\item \textbf{On-the-fly device-to-host agent sampling.}
+Full understanding of evolutionary history requires access to lineage intermediates (i.e., a ``fossil record'').
 This problem concerns how to stream a rolling, random subsample of agent genomes to the wafer periphery then back to the host machine.
-Data output bandwidth will need to be balanced against between-PE agent migration.
-A possible simplification would be to sample genomes only from wafer-edge PE subpopulations.
+Bandwidth use will need to be balanced against between-PE agent migration.
+As a simplification, sampling could be restricted to only consider wafer-edge PEs.
 \end{enumerate}
 
 \section{Outcomes}
 
-Workshop activities will combine engineering/coding with may also want to ask hypothesis driven questions.
-Technical validations will precede work assessing the frequency of sweeps with different migration dynamics and mutational dynamics.
+First, agent migration and sampling will be \textbf{validated for correctness and profiled for performance}.
+Apropos the former, we will test using genomes annotated with the ID of their originating PE.
+The latter will assess induced effects on generations elapsed per unit walltime as well as update rate across PE counts (weak scaling).
 
-In order to assess implementations to technical problems identified above,
-We will benchmark runtime cost/slowdown and assess compute capability usage.
-We will benchmark the scalability of developed code by running benchmarks at different sizes of things.
-We will validate migration and sampling using per-PE counters for send/receive actions and dummy genomes with fixed annotations of their origin PE identity.
-
-Our kernel implementation will allow investigation of how population structure and rare mutational events influence selective sweep frequency within very large populations.
-We will prepare an appropriate baseline treatment and assess the rate of sweeps with fat-tailed mutational distributions, strong purifying selection (high proportions of negative selection), and less spatial structure due to stronger migration rates.
-and use phylogenetic reconstructions to
-
-TODO
-
-
-% will catalyze research.
-% Progress on this front
-% How to , to directly create modules during the workshop that can be shared.
-% If there aren’t established protocols, the workshop environment would be a great place to discuss these issues.
-
-
-% What is the structural relationship between individual-level phylogenies and species-level phylogenies?
-% Do they respond in the same way to evolutionary conditions like selection pressure, ecology, and spatial structure?
-
-TODO add bolding
-
-% Project work will focus on the Cererbras WSE platform.
+To \textbf{investigate selective sweep dynamics}, we will use HStrat to compare the most recent common ancestor (MRCA) times of populations evolved with weak vs. strong population structure (viz. migration rate) and with vs. without fat-tailed mutational effect size.
+We will test effect interactions with population scale by varying PE count.
