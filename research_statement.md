@@ -4,10 +4,10 @@ ByteBoost participation will support early steps to establish my research agenda
 
 ## Workshop Opportunities
 
-The ByteBoost workshop provides several opportunities aligned to my career objectives, that are otherwise unavailable at my home institution.
+The ByteBoost workshop offers several opportunities aligned to my career objectives, that are otherwise unavailable at my home institution.
 
-I am excited to make full use of hardware access provisioned to workshop participants.
-In particular, I plan to trial at scale my recent work on decentralized, approximate phylogenetic tracking methods for evolution simulations.
+I am excited to make full use of hardware time provisioned to workshop participants.
+In particular, I plan to trial at-scale my recent work on decentralized, approximate phylogenetic tracking methods for evolution simulations.
 During the last semester, I collaborated with undergraduate researcher Connor Yang to implement an island-model evolution simulation for the Cerebras Wafer-Scale Engine (WSE).
 We recently succeeded in running prototype code with approximate phylogenetic tracking end-to-end on the Cerebras WSE simulator.
 The hands-on component of the workshop provides an ideal opportunity for initial experiments at-scale on hardware, which will allow us to assess how well our prototype code takes advantage of hardware capabilities and refine implementation strategy.
