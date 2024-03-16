@@ -6,8 +6,8 @@ Workshop participation will provide key supplements to my postdoctoral training,
 
 The ByteBoost workshop provides several opportunities aligned to my career objectives otherwise unavailable at my home institution.
 I am excited to make full use of hardware access provisioned to workshop participants to trial research software related to my recent work on decentralized phylogenetic tracking in evolution simulations.
-This last semester, I collaborated with undergraduate researcher Connor Yang to implement an island-model evolution simulation for the Cerebras Wafer-Scale Engine (WSE).
-We recently got a prototype running end-to-end on the Cerebras SDK hardware simulator.
+During the last semester, I collaborated with undergraduate researcher Connor Yang to implement an island-model evolution simulation for the Cerebras Wafer-Scale Engine (WSE).
+We recently succeeded in running a prototype end-to-end on the Cerebras SDK hardware simulator.
 The hands-on component of the workshop provides an ideal opportunity to experiment with these simulation approaches at-scale on hardware, which will allow us to assess how well our initial approach takes advantage of hardware capabilities and refine implementation strategy.
 
 The hands-on component of the workshop also provides an ideal opportunity to build collaborations with peer early-career researchers who share interests in emerging HPC technologies.
@@ -35,7 +35,7 @@ I will do this in two ways.
 1. Software Products:
 
 Availability of usable, extendable software significantly drives adoption and productivity of any new research platform.
-I hope to strengthen the community codebase by documenting, packaging, and sharing code developed during the course of the workshop.
+I hope to strengthen the community codebase by documenting, packaging, and sharing code developed during the workshop.
 Given the cutting-edge nature of ByteBoost platforms, I anticipate great benefit learning best practices to organize, test, and distribute on-device kernel/on-host driver software components through discussion with other workshop participants.
 
 2. Knowledge Sharing:
