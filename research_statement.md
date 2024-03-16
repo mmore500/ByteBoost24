@@ -1,6 +1,6 @@
 As an early-career researcher, ByteBoost provides a unique opportunity to develop skills and professional connections that further my career goals in large-scale agent-based modeling.
-In my current role, I serve as a postdoctoral researcher at University of Michigan, where I am affiliated with the Ecology and Evolutionary Biology Department, the Center for the Study of Complex Systems, and the Schmidt AI in Science postdoctoral fellowship program.
-Workshop participation will provide key supplements to my postdoctoral training, ultimately enabling me to make the next steps to advance my research agenda in scaling up agent-based models of evolutionary processes.
+In my current role, I serve as a postdoctoral researcher at the University of Michigan, where I am affiliated with the Ecology and Evolutionary Biology Department, the Center for the Study of Complex Systems, and the Schmidt AI in Science postdoctoral fellowship program.
+Workshop participation will provide key supplements to my postdoctoral training, ultimately enabling early steps to establish my research agenda in scaling up agent-based models of evolutionary processes.
 
 ## Workshop Opportunities
 
@@ -22,7 +22,7 @@ In particular, the Graphcore Intelligence Processing Unit (IPU) or similar class
 ## Career Goals
 
 Workshop participation will help me navigate the first stages of a research agenda that pushes the boundaries of HPC to advance capabilities of evolutionary simulation.
-In conjunction with my ByteBoost participation, I am presently developing an ACCESS Innovative Projects Proposal for hardware time on Neocortex and recently entered a preproposal to the US Department of Energy's EXPRESS 2024 FOA under the Large Discrete/Agent-Based Models topic.
+In conjunction with my ByteBoost participation, I am presently developing an ACCESS Innovative Projects Proposal for hardware time on Neocortex and recently entered a preproposal to the US Department of Energy's EXPRESS 2024 funding opportunity under the Large Discrete/Agent-Based Models topic.
 My workshop learning and capstone project will feed directly into these research activities.
 Ultimately, I hope to contribute to progress addressing open questions around open-ended evolution and major transitions in evolution (e.g., evolution of multicellularity) through sustained leadership laying foundations for application of emerging HPC technologies to agent-based modeling in digital evolution.
 I anticipate such work benefiting broader classes of agent-based modeling, with digital evolution serving as a productive testbed for generalizable computational methods for parallel discrete event simulation.
