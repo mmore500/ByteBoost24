@@ -1,6 +1,6 @@
 As an early-career researcher, ByteBoost provides a unique opportunity to develop skills and professional connections that further my career goals in large-scale agent-based modeling.
 In my current role, I serve as a postdoctoral researcher at the University of Michigan, where I am affiliated with the Ecology and Evolutionary Biology Department, the Center for the Study of Complex Systems, and the Schmidt AI in Science postdoctoral fellowship program.
-Workshop participation will provide key supplements to my postdoctoral training, ultimately enabling early steps to establish my research agenda in scaling up agent-based models of evolutionary processes.
+Workshop participation will provide key supplements to my postdoctoral training, ultimately enabling early steps to establish my research agenda in scaling up agent-based models of evolution.
 
 ## Workshop Opportunities
 
